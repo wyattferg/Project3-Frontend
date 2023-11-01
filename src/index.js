@@ -1,8 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import LandingPage from "./components/LandingPage";
+import MenuPage from "./components/MenuPage";
+import CustomerPage from "./components/CustomerPage";
+import LoginPage from "./components/LoginPage";
+import ManagerPage from "./components/ManagerPage";
+import CashierPage from "./components/CashierPage";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<LandingPage />} />
+          <Route path="MenuPage" element={<MenuPage />} />
+          <Route path="CustomerPage" element={<CustomerPage />} />
+          <Route path="LoginPage" element={<LoginPage />} />
+          <Route path="ManagerPage" element={<ManagerPage />} />
+          <Route path="CashierPage" element={<CashierPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

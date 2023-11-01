@@ -1,0 +1,36 @@
+
+/* Centering the content vertically and horizontally */
+.LandingPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the list items and links */
+.LandingPage ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.LandingPage li {
+  margin: 10px 0;
+}
+
+/* Styling the links as large buttons */
+.LandingPage li a {
+  display: inline-block;
+  padding: 15px 30px;
+  text-decoration: none;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.LandingPage li a:hover {
+  background-color: #333;
+  color: #fff;
+}

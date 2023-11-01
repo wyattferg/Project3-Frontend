@@ -1,0 +1,40 @@
+nav {
+    background-color: #333; /* Background color of the navbar */
+    color: white; /* Text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust the padding as needed */
+  }
+  
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+nav li {
+    margin: 0 10px; /* Adjust the margin between navbar items */
+  }
+  
+nav li:first-child {
+    margin-left: 0; /* Remove left margin for the first item */
+  }
+  
+nav li:last-child {
+    margin-right: 0; /* Remove right margin for the last item */
+  }
+  
+  /* Remove the link styles */
+nav a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Hover effect if needed */
+nav a:hover {
+    color: yellow; /* Change color on hover */
+    }
+  
