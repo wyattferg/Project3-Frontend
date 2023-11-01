@@ -3,12 +3,18 @@ import "./App.css";
 
 function App() {
   const [queryResult, setQueryResult] = useState([]);
+  const [popupContent, setPopupContent] = useState(null);
 
-  // Function to run a query on the server
+  // Function to handle displaying popup content
+  const openPopup = (content) => {
+    setPopupContent(content);
+  };
+
+  // This function runs a query on the server
   const runQuery = async (query) => {
     try {
-      //const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
-      const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
+      const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
+      //const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
       const data = await response.json();
       setQueryResult(data.result);
     } catch (error) {
@@ -16,31 +22,47 @@ function App() {
     }
   };
 
-  // Assuming you want to run a query when the component mounts
+  // Run a query to get the ingredients from the database
   useEffect(() => {
-    const sampleQuery = 'SELECT * FROM ingredients'; // Replace with your dynamic query
-    runQuery(sampleQuery);
+    const ingredientsQuery = 'SELECT * FROM ingredients';
+    runQuery(ingredientsQuery);
   }, []);
 
   return (
     <div className="App">
-      <h1>Query Result</h1>
+      <h1>Tiger Sugar Ingredients</h1>
       {queryResult.length > 0 ? (
-        <ul>
-          {queryResult.map((row, index) => (
-            <li key={index}>
-              {/* Displaying each row of the result */}
-              {Object.entries(row).map(([key, value]) => (
-                <p key={key}>
-                  <strong>{key}:</strong> {value}
-                </p>
+        <div className="rectangle-container">
+          {queryResult.map((row, rowIndex) => (
+            <div key={rowIndex} className="rectangle">
+              {Object.entries(row).map(([key, value], index) => (
+                <div key={index}>
+                  <p>{value}</p>
+                </div>
               ))}
-              <hr />
-            </li>
+              {/* Button to trigger the popup */}
+              <div>
+                <button onClick={() => openPopup(row)}>Show Details</button>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No query result found</p>
+      )}
+
+      {/* Popup to display detailed information */}
+      {popupContent && (
+        <div className="popup">
+          <div className="popup-content">
+            {Object.entries(popupContent).map(([key, value], index) => (
+              <div key={index}>
+                <p>{key}: {value}</p>
+              </div>
+            ))}
+            <button onClick={() => setPopupContent(null)}>Close</button>
+          </div>
+        </div>
       )}
     </div>
   );
