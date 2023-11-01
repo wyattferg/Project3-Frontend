@@ -14,8 +14,8 @@ function MenuPage() {
   // This function runs a query on the server
   const runQuery = async (query) => {
     try {
-      const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
-      // const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
+      // const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
+      const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
       const data = await response.json();
       setQueryResult(data.result);
     } catch (error) {
