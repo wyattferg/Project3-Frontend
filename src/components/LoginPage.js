@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-//import "./styles/loginPage.css";
+import "./LoginPage.css";
 
 //look into how to use router
 
