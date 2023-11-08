@@ -1,36 +1,54 @@
-
-/* Centering the content vertically and horizontally */
-.LoginPage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.login {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: rgb(37, 35, 35);
+  color: rgb(189, 189, 103);
+  border-radius: 5px;
 }
 
-/* Style for the list items and links */
-.LoginPage ul {
-  list-style: none;
-  padding: 0;
+.login h4 {
   text-align: center;
 }
 
-.LoginPage li {
-  margin: 10px 0;
+.text_area {
+  margin-bottom: 15px;
 }
 
-/* Styling the links as large buttons */
-.LoginPage li a {
-  display: inline-block;
-  padding: 15px 30px;
-  text-decoration: none;
-  border: 2px solid #333;
-  border-radius: 8px;
-  font-size: 18px;
-  color: #333;
-  background-color: #fff;
-  transition: all 0.3s;
+.text_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(182, 182, 80);
+  border-radius: 3px;
+  background-color: rgb(29, 27, 27);
+  color: rgb(186, 186, 85);
 }
 
-.LoginPage li a:hover {
-  background-color: #333;
-  color: #fff;
+.text_input::placeholder {
+  color: rgb(172, 172, 77);
 }
+
+.text_input:focus {
+  outline: none;
+  border-color: rgb(100, 100, 69);
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(119, 119, 75);
+  border: none;
+  border-radius: 3px;
+  color: rgb(30, 27, 27);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ffd700;
+}
+
+
+
+
+

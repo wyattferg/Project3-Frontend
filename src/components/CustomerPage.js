@@ -31,11 +31,11 @@ function CustomerPage() {
 
   return (
     <div className="App">
-      <h1>Tiger Sugar Drinks</h1>
+      <h1>Customer Menu</h1>
       {queryResult.length > 0 ? (
-        <div className="rectangle-container">
+        <div className="grid-container">
           {queryResult.map((row, rowIndex) => (
-            <div key={rowIndex} className="rectangle">
+            <div key={rowIndex} className="grid-item">
               {Object.entries(row).map(([key, value], index) => (
                 <div key={index}>
                   <p>{value}</p>
