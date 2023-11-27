@@ -1,7 +1,12 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login {
   width: 300px;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 120px;
   padding: 20px;
   background-color: rgb(37, 35, 35);
   color: rgb(189, 189, 103);
@@ -47,8 +52,3 @@
 .btn:hover {
   background-color: #ffd700;
 }
-
-
-
-
-

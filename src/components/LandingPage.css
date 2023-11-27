@@ -8,13 +8,14 @@
 
 /* Style for the list items and links */
 .LandingPage ul {
+  margin-top: 80px;
   list-style: none;
   padding: 0;
   text-align: center;
 }
 
 .LandingPage li {
-  margin: 10px 0;
+  margin: 40px 0;
 }
 
 /* Styling the links as large buttons */
