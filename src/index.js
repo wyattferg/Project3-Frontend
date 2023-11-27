@@ -10,7 +10,6 @@ import CustomerPage from "./components/CustomerPage";
 import LoginPage from "./components/LoginPage";
 import ManagerPage from "./components/ManagerPage";
 import CashierPage from "./components/CashierPage";
-import BottomBar from "./components/BottomBar";
 
 export default function App() {
   return (
@@ -25,7 +24,6 @@ export default function App() {
           <Route path="CashierPage" element={<CashierPage />} />
         </Route>
       </Routes>
-      <BottomBar />
     </BrowserRouter>
   );
 }

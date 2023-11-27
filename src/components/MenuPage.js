@@ -1,27 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MenuPage.css";
-
-const drinkInfo = {
-  "BobaMilkPearlJellyMousse": "Images/BlackTeaBrownSugar.png",
-  "BobaRedBeanMilk": "Images/BlackTeaLatte.png",
-  "BobaOolongTea" : "Images/GoldenOolongBrownSugar.png",
-  "BobaVanillaBlackTea" : "Images/VanillaBlackTeaBrownSugar.png",
-  "BobaBlackTeaMilk" : "Images/GreenTeaBrownSugar.png",
-  "BobaMangoMilk" : "Images/GoldenOolongTeaTigerFoam.png",
-  "BobaTaroPuddingMousse" : "Images/GoldenOolongBrownSugar.png",
-  "BobaStrawberryMilkMousse" : "Images/GoldenOolongTeaTigerFoam.png",
-  "BobaDarkChocolateMilkPearl" : "Images/BrownSugarBobaMilkWithChocolateMalt.png",
-  "BobaBrownSugarIceCream" : "Images/GreenTeaLatte.png",
-  "BobaLycheeBlackTea" : "Images/VanillaBlackTeaBrownSugar.png",
-  "BobaThaiTeaMilk" : "Images/BlackTeaLatte.png",
-  "BobaMilkPearlChocolateMousse" : "Images/BrownSugarBobaMilkWithChocolateMalt.png",
-  "BobaMilkPearlMousse" : "Images/GreenTeaBrownSugar.png",
-  "BobaCoffeeMilkPearlMousse" : "Images/BrownSugarBobaMilkWithEspresso.png",
-  "BobaMilkBrownSugarMousse" : "Images/VanillaBlackTea.png",
-  "BobaPuddingMilk" : "Images/GreenTeaLatte.png",
-  "BobaPuddingMouse" : "Images/BrownSugarBobaMilkWithEspresso.png"
-}
-
+import "./App.css";
 
 function MenuPage() {
   const [queryResult, setQueryResult] = useState([]);
@@ -51,34 +29,20 @@ function MenuPage() {
   }, []);
 
   return (
-    <div className="MenuPage">
-      <br />
+    <div className="App">
       <h1>Tiger Sugar Menu</h1>
-      <br />
       {queryResult.length > 0 ? (
         <div className="grid-container">
           {queryResult.map((row, rowIndex) => (
             <div key={rowIndex} className="grid-item">
-              <div className="left-content">
-                {Object.entries(row).map(([key, value], index) => (
-                  <div key={index}>
-                    {key === 'drinkname' && <p>{value}</p>}
-                    {key === 'ingredients' && <p>{value}</p>}
-                    {key === 'price' && <p>{value}</p>}
-                  </div>
-                ))}
-                {/* Button to trigger the popup */}
-                <div>
-                  <button onClick={() => openPopup(row)}>Show Details</button>
+              {Object.entries(row).map(([key, value], index) => (
+                <div key={index}>
+                  <p>{value}</p>
                 </div>
-              </div>
-              <div className="right-content">
-                {row.drinkname && (
-                  <img
-                    src={drinkInfo[row.drinkname]  || 'Images/comingSoon.jpg'}
-                    alt={row.drinkname}
-                  />
-                )}
+              ))}
+              {/* Button to trigger the popup */}
+              <div>
+                <button onClick={() => openPopup(row)}>Show Details</button>
               </div>
             </div>
           ))}
@@ -86,8 +50,6 @@ function MenuPage() {
       ) : (
         <p>No query result found</p>
       )}
-
-      <br />
 
       {/* Popup to display detailed information */}
       {popupContent && (
