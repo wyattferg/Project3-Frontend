@@ -5,7 +5,6 @@ import { jwtDecode } from "jwt-decode";
 const clientId = "418832330968-tk3s1c1pb02kc7l0cbn1beo7vpmvhp68.apps.googleusercontent.com"
 
 function Login() {
-  const [queryResult, setQueryResult] = useState([]);
   const [employeename, setEmployeeName] = useState('');
   const [employeeid, setEmployeeID] = useState('');
 
@@ -29,7 +28,6 @@ function Login() {
       // const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
       const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
       const data = await response.json();
-      setQueryResult(data.result); 
       if(data.result[0].ismanager === false) {
         window.location.href = '/CashierPage';
       }
