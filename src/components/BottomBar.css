@@ -85,7 +85,7 @@ body.popup-open {
 .A-Popup-Content {
   background: #e7e7e7;
   padding: 20px;
-  height: 300px;
+  height: auto;
   width: 200px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

@@ -22,6 +22,40 @@ const drinkInfo = {
   "BobaPuddingMouse" : "Images/BrownSugarBobaMilkWithEspresso.png"
 }
 
+const drinkNames = {
+  "BobaMilkPearlJellyMousse": "Pearl Bliss",
+  "BobaRedBeanMilk": "Red Velvet",
+  "BobaOolongTea": "Oolong Delight",
+  "BobaVanillaBlackTea": "Vanilla Sunset",
+  "BobaBlackTeaMilk": "Classic Blend",
+  "BobaMangoMilk": "Mango Tango",
+  "BobaTaroPuddingMousse": "Taro Dream",
+  "BobaStrawberryMilkMousse": "Strawberry Elegance",
+  "BobaDarkChocolateMilkPearl": "Choco Fantasy",
+  "BobaBrownSugarIceCream": "Sugar Rush",
+  "BobaLycheeBlackTea": "Lychee Fusion",
+  "BobaThaiTeaMilk": "Thai Harmony",
+  "BobaMilkPearlChocolateMousse": "Choco Pearl Delight",
+  "BobaMilkPearlMousse": "Creamy Pearl",
+  "BobaCoffeeMilkPearlMousse": "Coffee Bliss",
+  "BobaMilkBrownSugarMousse": "Brown Sugar Bliss",
+  "BobaPuddingMilk": "Pudding Paradise",
+  "BobaPuddingMouse": "Pudding Delight",
+};
+
+function formatIngredient(ingredientString) {
+  const excludedWords = ['cup', 'straw', 'ice', 'napkin'];
+
+  const words = ingredientString.split('-');
+
+  const formattedIngredients = words
+    .filter((word) => !excludedWords.includes(word))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(', ');
+
+  return formattedIngredients;
+}
+
 
 function MenuPage() {
   const [queryResult, setQueryResult] = useState([]);
@@ -62,9 +96,9 @@ function MenuPage() {
               <div className="left-content">
                 {Object.entries(row).map(([key, value], index) => (
                   <div key={index}>
-                    {key === 'drinkname' && <p>{value}</p>}
-                    {key === 'ingredients' && <p>{value}</p>}
-                    {key === 'price' && <p>{value}</p>}
+                    {key === 'drinkname' && <p>{drinkNames[value] || value}</p>}
+                    {key === 'ingredients' && <p>{formatIngredient(value) || value}</p>}
+                    {key === 'drinkcost' && <p>${value}</p>}
                   </div>
                 ))}
                 {/* Button to trigger the popup */}

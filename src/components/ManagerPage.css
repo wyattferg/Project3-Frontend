@@ -1,30 +1,80 @@
+.column-titles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  align-items: start; /* Align titles at the start of the cross-axis */
+  margin-bottom: 10px;
+  color: #fceb86;
+}
+
+.column {
+  font-weight: bold;
+}
+
+.item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 20px;
+}
+
+.red-box {
+  background-color: red;
+}
+
+.yellow-box {
+  background-color: #fceb86;
+  padding: 10px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns with equal width */
+  gap: 10px; /* Adjust the gap between columns */
+  align-items: start; /* Align items at the start of the cross-axis */
+}
+
+.column-value {
+  text-align: center;
+}
+
+.button-container {
+  margin-bottom: 10px; /* Adjust the value to your preference */
+}
+
+.show-details-button {
+  margin-left: auto; /* Push the button to the right */
+  /* Add any additional styling for the button */
+}
+
+
 button {
   margin-right: 10px; /* Adjust the value to your preference */
   /* ... (existing button styles) */
 }
 
-.Manager {
+.App {
   margin-top: 60px;
+  margin-bottom: 100px;
+
   text-align: center;
   background-color: black;
 }
 
-.Manager h1 {
+.App h1 {
   color: #fceb86;
+  
 }
 
-.main-page {
+.grid-container {
   margin-bottom: 100px;
-}
-
-.grid-bigbox {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three drinks per row */
   gap: 15px;
   justify-items: center;
 }
 
-.grid-box {
+.grid-item {
   width: 90%;
   height: 250px;
   border: 2px solid #363636;
@@ -37,7 +87,7 @@ button {
   justify-content: space-between;
 }
 
-.grid-box p {
+.grid-item p {
   margin: 0;
   font-size: 16px;
   color: #333;

@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 90vh; /* Set the height to fill the viewport */
+  background-color: 		#0e1111; /* Set the background color to black */
 }
 
 .login {
@@ -11,10 +13,13 @@
   background-color: rgb(37, 35, 35);
   color: rgb(189, 189, 103);
   border-radius: 5px;
+  border-color: #EED484;
+  border-style: solid;
 }
 
 .login h4 {
   text-align: center;
+  margin-bottom: 3px
 }
 
 .text_area {

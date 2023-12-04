@@ -1,9 +1,11 @@
-
-/* Centering the content vertically and horizontally */
 .LandingPage {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh; /* Set the height to fill the viewport */
+  background-image: url('https://tigersugar.co/assets/images/container01.jpg?v=ef33cbf0');
+  background-size: cover;
+  background-position: center;
 }
 
 /* Style for the list items and links */
@@ -20,7 +22,7 @@
 
 /* Styling the links as large buttons */
 .LandingPage li a {
-  display: inline-block;
+  display:inline-block;
   padding: 15px 30px;
   text-decoration: none;
   border: 2px solid #333;

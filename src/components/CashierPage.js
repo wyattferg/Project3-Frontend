@@ -1,6 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./OrderPage.css";
 
+const drinkNames = {
+  "BobaMilkPearlJellyMousse": "Pearl Bliss",
+  "BobaRedBeanMilk": "Red Velvet",
+  "BobaOolongTea": "Oolong Delight",
+  "BobaVanillaBlackTea": "Vanilla Sunset",
+  "BobaBlackTeaMilk": "Classic Blend",
+  "BobaMangoMilk": "Mango Tango",
+  "BobaTaroPuddingMousse": "Taro Dream",
+  "BobaStrawberryMilkMousse": "Strawberry Elegance",
+  "BobaDarkChocolateMilkPearl": "Choco Fantasy",
+  "BobaBrownSugarIceCream": "Sugar Rush",
+  "BobaLycheeBlackTea": "Lychee Fusion",
+  "BobaThaiTeaMilk": "Thai Harmony",
+  "BobaMilkPearlChocolateMousse": "Choco Pearl Delight",
+  "BobaMilkPearlMousse": "Creamy Pearl",
+  "BobaCoffeeMilkPearlMousse": "Coffee Bliss",
+  "BobaMilkBrownSugarMousse": "Brown Sugar Bliss",
+  "BobaPuddingMilk": "Pudding Paradise",
+  "BobaPuddingMouse": "Pudding Delight",
+};
+
 function CashierPage() {
   const [drinks, setDrinks] = useState([]);
   const [popupContent, setPopupContent] = useState(null);
@@ -183,7 +204,7 @@ function CashierPage() {
         {drinks.map((row, rowIndex) => (
             <div key={rowIndex} className="grid-cell">
               <div>
-                <p>{row.drinkname}</p>
+                <p>{drinkNames[row.drinkname] || row.drinkname}</p>
               </div>
               <div>
                 <p>${row.drinkcost}</p>
@@ -205,7 +226,7 @@ function CashierPage() {
         <div className="current-order">
         {currentOrder.map((drink, index) => (
             <div key={index} className="current-order-item">
-              <h3>{drink.drinkname}</h3>
+              <h3>{drinkNames[drink.drinkname] || drink.drinkname}</h3>
               <br />
               {drink.addedList && drink.addedList.length > 0 && (
                 <>
@@ -238,7 +259,7 @@ function CashierPage() {
         <div className="orderPopup">
           <div className="orderPopup-content">
           <div>
-              <h2>{popupContent.drinkname}</h2>
+              <h2>{drinkNames[popupContent.drinkname] || popupContent.drinkname}</h2>
             </div>
             <div>
               <h2>${drinkCost}</h2>

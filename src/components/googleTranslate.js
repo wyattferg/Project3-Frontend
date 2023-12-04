@@ -6,6 +6,7 @@ import './googleTranslate.css';
 function Translate() {
   const languages = [
     {label: 'English', value:'/auto/en'},
+    {label: 'Español', value:'/auto/es'},
     {label: `Русский`, value:'/auto/ru'},
     {label: 'Polski', value:'/auto/pl'} ];
   
@@ -20,6 +21,7 @@ function Translate() {
       setSelected(Cookies.get('googtrans'));
       var temp = Cookies.get('googtrans').substring(4);
       if (temp === 'ru') {setCurrentLang('Русский');}
+      else if (temp === 'es') {setCurrentLang('Español');}
       else if (temp === 'pl') {setCurrentLang('Polski');}
 
     } else {
