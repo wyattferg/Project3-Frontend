@@ -194,7 +194,7 @@ function MenuPage() {
       )}
   
 
-      <br />
+      <br /><br />
 
       {/* Popup to display detailed information */}
       {popupContent && (

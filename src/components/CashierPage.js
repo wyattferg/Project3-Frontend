@@ -380,7 +380,7 @@ function CashierPage() {
                 <h2>{drinkNames[row.drinkname] || row.drinkname}</h2>
               </div>
               <div>
-                <p>${row.drinkcost}</p>
+                <p class="cashier-price">${row.drinkcost}</p>
               </div>
               {/* Button to open the popup */}
               <div>

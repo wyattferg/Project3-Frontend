@@ -30,16 +30,16 @@ export const ZoomProvider = ({ children }) => {
    * @type {Object.<string, number>}
    */
   const typeScaleFactors = {
-    'A': 18,
-    'BUTTON': 15,
-    'P': 15,
+    'A': 25,
+    'BUTTON': 20,
+    'P': 20,
     'H1': 36,
     'H2': 32,
     'H3': 30,
     'H4': 28,
     'H5': 26,
     'H6': 24,
-    'SPAN': 15,
+    'SPAN': 20,
     'SELECT': 15
   };
 

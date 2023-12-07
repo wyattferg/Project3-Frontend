@@ -8,6 +8,10 @@
   background-position: center;
 }
 
+.nav-link {
+  font-size: 32px;
+}
+
 /* Style for the list items and links */
 .LandingPage ul {
   margin-top: 80px;
@@ -27,7 +31,7 @@
   border: solid 3px #EED484;
   display: inline-flex;
   width: auto;
-  height: 2.75rem;
+  height: 3.75rem;
   line-height: 2.75rem;
   padding: 0 1.375rem;
   vertical-align: middle;

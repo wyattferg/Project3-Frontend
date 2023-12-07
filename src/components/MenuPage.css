@@ -19,7 +19,7 @@
   margin-top: 60px;
   text-align: center;
   background-color: black;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 
 .MenuPage h1 {
@@ -31,7 +31,7 @@
   grid-template-columns: repeat(3, 1fr); /* Three drinks per row */
   gap: 15px;
   justify-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 
 .MenuPage .grid-item {
@@ -63,7 +63,7 @@
 
 .grid-item p {
   margin: 0;
-  font-size: 16px;
+  font-size: 24px;
   color: #333;
 }
 

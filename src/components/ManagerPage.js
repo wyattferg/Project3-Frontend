@@ -58,7 +58,7 @@ const View1 = ({
               })()}
               <div className={row.amountinstock === 0 ? 'red-box' : 'yellow-box'}>
                 <div className="column-value">{row.ingredientname}</div>
-                <div className="column-value">{row.ingredientcost}</div>
+                <div className="column-value">${row.ingredientcost}</div>
                 <div className="column-value">{row.amountinstock}</div>
                 <div className="column-value">{row.fullstockcount}</div>
                 <div className="column-value">{row.supplier}</div>
@@ -70,7 +70,7 @@ const View1 = ({
               </div>
             </li>
           ))}
-          <br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br />
         </ul>
       ) : (
         <p>No query result found</p>
@@ -377,7 +377,7 @@ const View3 = ({ runQuery, queryResultC, openPopup, popupContent, setPopupConten
   return (
     <div className="App" style={{marginTop: 30 + 'px'}}>
       {/* The rest of your component logic */}
-      <h1>Drink Data</h1>
+      <h1>Restock Report</h1>
       <br />
 
       {/* Section for column titles */}
@@ -401,7 +401,7 @@ const View3 = ({ runQuery, queryResultC, openPopup, popupContent, setPopupConten
               })()}
               <div className={row.amountinstock === 0 ? 'red-box' : `yellow-box`}>
                 <div className="column-value">{row.ingredientname}</div>
-                <div className="column-value">{row.ingredientcost}</div>
+                <div className="column-value">${row.ingredientcost}</div>
                 <div className="column-value">{row.amountinstock}</div>
                 <div className="column-value">{row.fullstockcount}</div>
                 <div className="column-value">{row.supplier}</div>
@@ -621,7 +621,7 @@ const View4 = ({ salesReport, salesTogether, excessReport, reportTypes, handleRe
               <div className="column-value">${item.ordercost}</div>
             </div>
           </li>
-        ))}<br /><br /><br /><br /><br />
+        ))}<br /><br /><br /><br /><br /><br />
       </div>
     )}
 
@@ -647,7 +647,7 @@ const View4 = ({ salesReport, salesTogether, excessReport, reportTypes, handleRe
             <div className="column-value">{item.pair_count}</div>
           </div>
         </li>
-      ))}<br /><br /><br /><br /><br />
+      ))}<br /><br /><br /><br /><br /><br />
       </div>
     )}
 
@@ -671,7 +671,7 @@ const View4 = ({ salesReport, salesTogether, excessReport, reportTypes, handleRe
             <div className="column-value">{item.total_quantity} oz</div>
           </div>
         </li>
-      ))}<br /><br /><br /><br /><br />
+      ))}<br /><br /><br /><br /><br /><br />
       </div>
     )}
 

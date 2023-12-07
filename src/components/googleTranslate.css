@@ -33,7 +33,7 @@
   display: flex;
   position: fixed;
   bottom: 90px; /* Adjust this value according to your design */
-  margin-bottom: -20px; /* Adjust this value to control how much it sticks out */
+  margin-bottom: 0px; /* Adjust this value to control how much it sticks out */
 }
 
 .translate-wrapper {

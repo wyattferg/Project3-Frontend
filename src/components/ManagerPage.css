@@ -48,6 +48,7 @@
 
 .column-value {
   text-align: center;
+  font-size: 24px;
 }
 
 .button-container {
@@ -99,6 +100,10 @@ button {
   justify-content: space-between;
 }
 
+.yellow-drink-box p {
+  font-size: 24px;
+}
+
 .red-drink-box {
   width: 90%;
   height: 250px;
@@ -110,6 +115,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.red-drink-box p {
+  font-size: 24px;
 }
 
 .grid-item p {

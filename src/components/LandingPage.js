@@ -16,15 +16,15 @@ const LandingPage = () => {
         <ul>
           {/* Menu link */}
           <li>
-            <Link to="/MenuPage">Menu</Link>
+            <Link to="/MenuPage" className="nav-link">Menu</Link>
           </li>
           {/* Customer link */}
           <li>
-            <Link to="/CustomerPage">Customer</Link>
+            <Link to="/CustomerPage" className="nav-link">Customer</Link>
           </li>
           {/* Employee Login link */}
           <li>
-            <Link to="/LoginPage">Employee Login</Link>
+            <Link to="/LoginPage" className="nav-link">Employee Login</Link>
           </li>
         </ul>
       </div>
