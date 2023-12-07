@@ -1,6 +1,8 @@
 .column-titles {
+  margin-right: 20px;
+  margin-left: 20px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   align-items: start; /* Align titles at the start of the cross-axis */
   margin-bottom: 10px;
@@ -21,15 +23,25 @@
 }
 
 .red-box {
-  background-color: red;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: rgb(245, 88, 88);
+  padding: 10px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 5 columns with equal width */
+  gap: 10px; /* Adjust the gap between columns */
+  align-items: start; /* Align items at the start of the cross-axis */
 }
 
 .yellow-box {
   background-color: #fceb86;
+  margin-right: 20px;
+  margin-left: 20px;
   padding: 10px;
   border-radius: 8px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns with equal width */
+  grid-template-columns: repeat(6, 1fr); /* 5 columns with equal width */
   gap: 10px; /* Adjust the gap between columns */
   align-items: start; /* Align items at the start of the cross-axis */
 }
@@ -74,13 +86,26 @@ button {
   justify-items: center;
 }
 
-.grid-item {
+.yellow-drink-box {
   width: 90%;
   height: 250px;
   border: 2px solid #363636;
   padding: 15px;
   border-radius: 8px;
   background-color: #fceb86;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.red-drink-box {
+  width: 90%;
+  height: 250px;
+  border: 2px solid #363636;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgb(245, 88, 88);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -136,4 +161,35 @@ button:hover {
 
 .popup-content button {
   margin-top: 15px;
+}
+
+.selectionBoxGroup {
+  text-align: center; /* Center the content within the container */
+  margin-right: 40%;
+  margin-left: 40%;
+}
+
+.selects-row,
+.selects-row-info {
+  display: flex;
+  justify-content: space-around; /* Equal spacing between items */
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.selects-row div,
+.selects-row-info div {
+  flex: 1; /* Distribute available space equally among child elements */
+  margin: 0 5px; /* Adjust as needed */
+}
+
+.button-row {
+  text-align: center; /* Center the button */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+/* Style for selects */
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }

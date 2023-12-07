@@ -11,7 +11,13 @@ import LoginPage from "./components/LoginPage";
 import ManagerPage from "./components/ManagerPage";
 import CashierPage from "./components/CashierPage";
 import BottomBar from "./components/BottomBar";
+import { ZoomProvider } from './components/ZoomContext';
 
+/**
+ * Root component of the application.
+ * 
+ * @returns {JSX.Element} The JSX element representing the application structure.
+ */
 export default function App() {
   return (
     <BrowserRouter>
@@ -30,10 +36,15 @@ export default function App() {
   );
 }
 
+// Create a root element for rendering the application.
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render the application wrapped in StrictMode and ZoomProvider.
 root.render(
   <React.StrictMode>
-    <App />
+    <ZoomProvider>
+      <App />
+    </ZoomProvider>
   </React.StrictMode>
 );
 

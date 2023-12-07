@@ -35,17 +35,67 @@ h3 {
   justify-items: center;
 }
 
-.grid-cell {
+.grid-customer {
   width: 90%;
   height: 250px;
   border: 2px solid #363636;
-  padding: 5px;
+  padding: 15px;
   border-radius: 8px;
   background-color: #ffe476;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: row;
+}
+
+.left-content {
+  flex: 2;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 90%;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-cell-yellow {
+  width: 90%;
+  height: 250px;
+  border: 2px solid #363636;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #ffe476;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color:rgba(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.grid-cell-red {
+  width: 90%;
+  height: 250px;
+  border: 2px solid #363636;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: rgb(245, 88, 88);
+  color:rgba(0, 0, 0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-customer p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
 }
 
 .grid-cell p {
@@ -62,6 +112,10 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.button-not-visible {
+  display: none;
 }
 
 button:hover {
@@ -131,7 +185,9 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 50%;
+  max-height: 70%;
   overflow-y: auto;
+  margin-top: -60px;
 }
 
 .orderPopup-content p {

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./MenuPage.css";
 
+/**
+ * Represents a collection of information about drink images.
+ * @type {Object<string, string>}
+ */
 const drinkInfo = {
   "BobaMilkPearlJellyMousse": "Images/BlackTeaBrownSugar.png",
   "BobaRedBeanMilk": "Images/BlackTeaLatte.png",
@@ -22,6 +26,10 @@ const drinkInfo = {
   "BobaPuddingMouse" : "Images/BrownSugarBobaMilkWithEspresso.png"
 }
 
+/**
+ * Represents a collection of drink names.
+ * @type {Object<string, string>}
+ */
 const drinkNames = {
   "BobaMilkPearlJellyMousse": "Pearl Bliss",
   "BobaRedBeanMilk": "Red Velvet",
@@ -43,6 +51,11 @@ const drinkNames = {
   "BobaPuddingMouse": "Pudding Delight",
 };
 
+/**
+ * Formats an ingredient string by excluding certain words and capitalizing the first letter of each word.
+ * @param {string} ingredientString - The input ingredient string.
+ * @returns {string} The formatted ingredient string.
+ */
 function formatIngredient(ingredientString) {
   const excludedWords = ['cup', 'straw', 'ice', 'napkin'];
 
@@ -56,70 +69,130 @@ function formatIngredient(ingredientString) {
   return formattedIngredients;
 }
 
-
+/**
+ * React component for the Menu Page.
+ * @component
+ */
 function MenuPage() {
-  const [queryResult, setQueryResult] = useState([]);
+  /**
+   * State hook to store the result of a query.
+   * @type {[Array<Object>, function]}
+   */
+  const [drinks, setDrinks] = useState([]);
+  /**
+   * State hook to store the result of a query.
+   * @type {[Array<Object>, function]}
+   */
+  const [ingredients, setIngredients] = useState([]);
+  /**
+   * State hook to manage the content of the popup.
+   * @type {[Object, function]}
+   */
   const [popupContent, setPopupContent] = useState(null);
 
-  // Function to handle displaying popup content
+  /**
+   * Opens a popup with the specified content.
+   * @param {Object} content - The content to be displayed in the popup.
+   */
   const openPopup = (content) => {
     setPopupContent(content);
   };
 
-  // This function runs a query on the server
+  /**
+   * Function to run a query on the server.
+   * @function runQuery
+   * @async
+   * @param {string} query - The SQL query to execute.
+   * @returns {Promise<Array>} A promise resolving to the result of the query.
+   */
   const runQuery = async (query) => {
     try {
-      // const response = await fetch(`http://localhost:8000/run-query?query=${encodeURIComponent(query)}`);
       const response = await fetch(`https://tiger-sugar-backend.onrender.com/run-query?query=${encodeURIComponent(query)}`);
       const data = await response.json();
-      setQueryResult(data.result);
+      return data.result;
     } catch (error) {
       console.error('Error running query:', error);
+      return [];
     }
   };
 
-  // Run a query to get the ingredients from the database
+  /**
+   * useEffect hook to fetch ingredients and drinks from the database.
+   * @function
+   * @name useEffect
+   */
   useEffect(() => {
-    const ingredientsQuery = 'SELECT * FROM drinks';
-    runQuery(ingredientsQuery);
+    const fetchData = async () => {
+      const ingredientsQuery = 'SELECT * FROM ingredients';
+      const drinksQuery = 'SELECT * FROM drinks';
+
+      try {
+        const [ingredientsData, drinksData] = await Promise.all([
+          runQuery(ingredientsQuery),
+          runQuery(drinksQuery)
+        ]);
+
+        setIngredients(ingredientsData);
+        setDrinks(drinksData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
+  const getLowestStockCountForDrink = (drink) => {
+    return drink.ingredients.split('-').reduce((minIngredientStock, ingredientName) => {
+      const ingredient = ingredients.find((item) => item.ingredientname === ingredientName.trim());
+      const ingredientStock = ingredient ? ingredient.amountinstock : 0;
+      return Math.min(minIngredientStock, ingredientStock);
+    }, Number.POSITIVE_INFINITY);
+  };
+  
   return (
     <div className="MenuPage">
       <br />
       <h1>Tiger Sugar Menu</h1>
       <br />
-      {queryResult.length > 0 ? (
+      {drinks.length > 0 ? (
         <div className="grid-container">
-          {queryResult.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid-item">
-              <div className="left-content">
-                {Object.entries(row).map(([key, value], index) => (
-                  <div key={index}>
-                    {key === 'drinkname' && <p>{drinkNames[value] || value}</p>}
-                    {key === 'ingredients' && <p>{formatIngredient(value) || value}</p>}
-                    {key === 'drinkcost' && <p>${value}</p>}
-                  </div>
-                ))}
-                {/* Button to trigger the popup */}
-                <div>
-                  <button onClick={() => openPopup(row)}>Show Details</button>
+          {drinks.map((row, rowIndex) => {
+            const lowestStockCount = getLowestStockCountForDrink(row);
+  
+            // Skip rendering if lowestStockCount is 0
+            if (lowestStockCount === 0) {
+              return null;
+            }
+  
+            return (
+              <div key={rowIndex} className="grid-item">
+                <div className="left-content">
+                  {Object.entries(row).map(([key, value], index) => (
+                    <div key={index}>
+                      {key === 'drinkname' && <h2 style={{ textShadow: '2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white' }}>{drinkNames[value] || value}</h2>}
+                      {key === 'ingredients' && <p>{formatIngredient(value) || value}</p>}
+                      {key === 'drinkcost' && <p>${value}</p>}
+                      {key === 'calories' && <p>{value} Calories</p>}
+                    </div>
+                  ))}
+                </div>
+                <div className="right-content">
+                  {row.drinkname && (
+                    <img
+                      src={drinkInfo[row.drinkname] || 'Images/comingSoon.jpg'}
+                      alt={row.drinkname}
+                    />
+                  )}
                 </div>
               </div>
-              <div className="right-content">
-                {row.drinkname && (
-                  <img
-                    src={drinkInfo[row.drinkname]  || 'Images/comingSoon.jpg'}
-                    alt={row.drinkname}
-                  />
-                )}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <p>No query result found</p>
       )}
+  
 
       <br />
 
